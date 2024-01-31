@@ -6,7 +6,7 @@
  *
  * If tree is NULL, do nothing.
  *
- * Return: no return.
+ * Return: void
  */
 void binary_tree_delete(binary_tree_t *tree)
 {

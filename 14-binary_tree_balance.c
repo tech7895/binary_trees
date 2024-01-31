@@ -3,10 +3,10 @@
 /**
  * node_height - function that computes the height of a binary tree's node.
  * @tree: pointer to the root node of the tree to measure the height.
- * @n: accumulated height.
+ * @n: the accumulated height
  * @height: pointer to the maximum height in the node's tree.
  *
- * Return: no return.
+ * Return: void
  */
 void node_height(const binary_tree_t *tree, int n, int *height)
 {

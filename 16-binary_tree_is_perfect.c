@@ -3,11 +3,11 @@
 /**
  * tree_stats - function that computes some statistics about a binary tree.
  * @tree: pointer to the root node of the tree to check.
- * @n: accumulated height of the current path in the tree.
+ * @n: the accumulated heightof the current path in the tree.
  * @leaves: pointer to the tree's leaf count value.
  * @height: pointer to the tree's maximum height value.
  *
- * Return: no return.
+ * Return: void
  */
 void tree_stats(const binary_tree_t *tree, size_t n,
 	size_t *leaves, size_t *height)

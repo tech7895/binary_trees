@@ -8,7 +8,7 @@
  *
  * If tree or func is NULL, do nothing.
  *
- * Return: no return.
+ * Return: void
  */
 void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int))
 {
