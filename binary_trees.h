@@ -97,8 +97,7 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 
 /* 100-binary_trees_ancestor.c */
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
-const binary_tree_t *second);
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
 
 /* 100-binary_trees_ancestor.c */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
