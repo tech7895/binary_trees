@@ -1,107 +1,93 @@
-#include <stdlib.h>
 #include "binary_trees.h"
-
-q_node *enqueue(binary_tree_t *node, q_node **head, q_node **tail);
-void free_queue(q_node *head);
-
 /**
- * binary_tree_is_bst - checks if a binary tree is a valid Binary Search Tree
- *
- * Description: This solution uses a queue to store the nodes in inorder then
- * checks if the queue is sorted in ascending order. Inorder traversal of a
- * binary search tree should be sorted in ascending order.
- * The queue is implemented using a linked list.
- * Time complexity: O(n)
- * Space complexity: O(n)
- *
- * @tree: pointer to the root node of the tree to check
- * Return: 1 if tree is a valid BST, and 0 otherwise
+ * check_sub_tree_Left - check if all nodes are smaller than
+ * the root specified
+ * @node: node in the tree to verify condition
+ * @max: value to compare
+ * Return: 1 if all nodes are smaller or equal or 0 if not
+ */
+int check_sub_tree_Left(const binary_tree_t *node, int max)
+{
+	int left = 0, right = 0;
+
+	if (node == NULL)
+	{
+		return (1);
+	}
+	else
+	{
+		if (node->n >= max)
+			return (0);
+		left = check_sub_tree_Left(node->left, max);
+		right = check_sub_tree_Left(node->right, max);
+		if (left == right && left == 1)
+			return (1);
+		return (0);
+	}
+}
+/**
+ * check_sub_tree_Right - check if all the nodes are bigger than the
+ * root specified
+ * @node: node in the tree to verify condition
+ * @min: value to compare
+ * Return: 1 if all is bigger or equal or 0 if not
+ */
+int check_sub_tree_Right(const binary_tree_t *node, int min)
+{
+	int left = 0, right = 0;
+
+	if (node == NULL)
+	{
+		return (1);
+	}
+	else
+	{
+		if (node->n <= min)
+			return (0);
+		left = check_sub_tree_Right(node->left, min);
+		right = check_sub_tree_Right(node->right, min);
+		if (left == right && left == 1)
+			return (1);
+		return (0);
+	}
+}
+/**
+ * binary_tree_is_bst - says if a tree is a bst or not
+ * the process here is first verify that the left node be smaller than the root
+ * then verify if the right node is bigger than th root.
+ * after that verify if the left subtree has nodes smaller than root
+ * and the right subtree has bigger nodes than root
+ * @tree: node that point to the tree to check
+ * Return: 1 if it is a BST or 0 if not
  */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
-	q_node *head = NULL, *tail = NULL, *current = NULL;
+	int var = 0, left = 2, right = 2;
 
-	if (!tree)
+	if (tree == NULL)
 		return (0);
-
-	create_queue((binary_tree_t *)tree, &head, &tail, &enqueue);
-
-	current = head;
-
-	while (current->next)
+	if (tree->left && tree->left->n > tree->n)
+		return (0);
+	if (tree->right && tree->right->n < tree->n)
+		return (0);
+	if (tree->left && tree->left->n < tree->n)
 	{
-		if (current->b_tree_node->n >= current->next->b_tree_node->n)
-		{
-			free_queue(head);
+		var = check_sub_tree_Left(tree->left, tree->n);
+		if (var == 0)
 			return (0);
-		}
-		current = current->next;
+		left = binary_tree_is_bst(tree->left);
 	}
-	free_queue(head);
-	return (1);
-}
-
-/**
- * create_queue - creates a queue of nodes in inorder traversal
- * @tree: pointer to the root node of the tree to traverse
- * @head: pointer to the head of the queue
- * @tail: pointer to the tail of the queue
- * @func: pointer to a function to call for each node
- * Return: void
- */
-void create_queue(binary_tree_t *tree, q_node **head, q_node **tail,
-				  q_node *(*func)(binary_tree_t *, q_node **, q_node **))
-{
-	if (!tree || !func)
-		return;
-	create_queue(tree->left, head, tail, func);
-	func(tree, head, tail);
-	create_queue(tree->right, head, tail, func);
-}
-
-/**
- * enqueue - adds a node to the end of a queue
- * @node: pointer to the binary tree node
- * @head: pointer to the head of the queue
- * @tail: pointer to the tail of the queue
- * Return: pointer to the new node
- */
-q_node *enqueue(binary_tree_t *node, q_node **head, q_node **tail)
-{
-	q_node *new_node = NULL;
-
-	if (!node || !head || !tail)
-		return (NULL);
-	new_node = malloc(sizeof(q_node));
-
-	if (!new_node)
-		return (NULL);
-
-	new_node->b_tree_node = node;
-	new_node->next = NULL;
-
-	if (!*head)
-		*head = new_node;
-	if (*tail)
-		(*tail)->next = new_node;
-	*tail = new_node;
-	return (new_node);
-}
-
-/**
- * free_queue - frees a queue
- * @head: pointer to the head of the queue
- * Return: void
- */
-void free_queue(q_node *head)
-{
-	q_node *temp = NULL;
-
-	while (head)
+	if (tree->right && tree->right->n > tree->n)
 	{
-
-		temp = head;
-		head = head->next;
-		free(temp);
+		var = check_sub_tree_Right(tree->right, tree->n);
+		if (var == 0)
+			return (0);
+		right = binary_tree_is_bst(tree->right);
 	}
+	if (left != 2 || right != 2)
+	{
+		if (left == 0 || right == 0)
+			return (0);
+	}
+	return (1);
 }
