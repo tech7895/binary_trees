@@ -100,6 +100,10 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
 	
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+void recursion(link_t **head, const binary_tree_t *tree);
+void linked_node(link_t **head, const binary_tree_t *tree, size_t level);
+size_t binary_tree_depth(const binary_tree_t *tree);
+size_t binary_tree_height(const binary_tree_t *tree);
 
 /* 102-binary_tree_is_complete.c */
 int binary_tree_is_complete(const binary_tree_t *tree);
