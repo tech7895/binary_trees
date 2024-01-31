@@ -1,15 +1,21 @@
+#include <stdlib.h>
 #include "binary_trees.h"
 
+int node_count(const heap_t *tree);
+heap_t *ins_max_heap(heap_t *node, heap_t *new_node, int index,
+					 int new_node_index);
+heap_t *bottom_up_heapify(heap_t *node);
+
 /**
- * heap_insert - inserts a value in Max Binary Heap.
- * @root: double pointer to the root node of the Heap to insert the value.
- * @value: value to store in the node to be inserted.
- *
- * Return: pointer to the created node, or NULL on failure.
+ * heap_insert - Inserts a value into a Max Binary Heap
+ * @root: Double pointer to the root node of the Heap to insert the value
+ * @value: Value to store in the node to be inserted
+ * Return: Pointer to the created node, or NULL on failure
  */
 heap_t *heap_insert(heap_t **root, int value)
 {
-	heap_t *new_node = NULL, *tmp = NULL;
+	int size;
+	heap_t *new_node = NULL;
 
 	if (!root)
 		return (NULL);
@@ -17,41 +23,73 @@ heap_t *heap_insert(heap_t **root, int value)
 	new_node = binary_tree_node(NULL, value);
 	if (!new_node)
 		return (NULL);
-	if (!*root)
-	{
-		*root = new_node; /* If root is empty, set the root to the new node */
-		return (new_node);
-	}
-	/* If the root is not empty, find the first available spot in the tree */
-	tmp = *root;
-	while (tmp) /* If tmp is not empty */
-	{	/* Check if the left node is empty and the right node is not */
-		if (tmp->left && !tmp->right)
-		{	/* If it is set the right node to the new node */
-			tmp->right = new_node; /*  set the parent of the new node to tmp */
-			new_node->parent = tmp;
-			break;
-		}
-		else if (!tmp->left) /* If left node is not empty and right node is */
-		{
-			tmp->left = new_node; /* set the left node to the new node */
-			new_node->parent = tmp; /* set the parent of the new node to tmp */
-			break;
-		} /* If neither of those are true */
-		/* check if left node value is less than right node value*/
-		else if (tmp->left->n < tmp->right->n)
-			tmp = tmp->left; /* If yes, set tmp to the left node */
-		else
-			tmp = tmp->right; /* If not, set tmp to the right node. */
-	}
-	/*  check if new node parent is empty and new node value is greater than parent value of new node. */
-	while (new_node->parent && new_node->n > new_node->parent->n)
-	{	/* If yes, set new node value to parent value of the new node */
-		new_node->n = new_node->parent->n;
-		new_node->parent->n = value; /* set parent of the new node value to the value */
-		new_node = new_node->parent; /* set the new node to the parent of the new node */
-	}
-	return (new_node); /* return new node */
+
+	size = node_count(*root) + 1;
+	*root = ins_max_heap(*root, new_node, 0, size - 1);
+
+	return (bottom_up_heapify(new_node));
 }
 
-/* CODE DOESN'T PASS ALL CHECKS */
+/**
+ * node_count - Counts the total number of nodes in a binary tree
+ * @tree: Pointer to the root node of the tree to count the number of nodes
+ * Return: Number of nodes in the tree
+ */
+int node_count(const heap_t *tree)
+{
+	if (!tree)
+		return (0);
+	return (1 + node_count(tree->left) + node_count(tree->right));
+}
+
+/**
+ * ins_max_heap - Inserts a value into a Max Binary Heap
+ * @node: Pointer to the root node of the Heap to insert the value
+ * @new_node: Value to store in the node to be inserted
+ * @index: Index of current node
+ * @new_node_index: Index of new node
+ * Return: Pointer to the created node, or NULL on failure
+ */
+heap_t *ins_max_heap(heap_t *node, heap_t *new_node,
+					 int index, int new_node_index)
+{
+	if (index > new_node_index)
+		return (NULL);
+	if (index == new_node_index)
+		return (new_node);
+
+	node->left = ins_max_heap(node->left, new_node,
+							  index * 2 + 1, new_node_index);
+	if (node->left)
+		node->left->parent = node;
+
+	node->right = ins_max_heap(node->right, new_node,
+							   index * 2 + 2, new_node_index);
+	if (node->right)
+		node->right->parent = node;
+
+	return (node);
+}
+
+/**
+ * bottom_up_heapify - Heapifies a Max Binary Heap bottom-up
+ * Description: This function swaps the value of a node with the value of its
+ * parent while the value of the node is greater than the value of its parent.
+ *
+ * @node: Pointer to the root node of the Heap to heapify
+ * Return: Pointer to the root node of the Heap
+ */
+heap_t *bottom_up_heapify(heap_t *node)
+{
+	heap_t *temp = node;
+	int temp_n;
+
+	while (temp->parent && temp->n > temp->parent->n)
+	{
+		temp_n = temp->n;
+		temp->n = temp->parent->n;
+		temp->parent->n = temp_n;
+		temp = temp->parent;
+	}
+	return (temp);
+}
