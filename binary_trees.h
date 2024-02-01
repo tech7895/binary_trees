@@ -98,16 +98,7 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 
 /* 100-binary_trees_ancestor.c */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
-									 const binary_tree_t *second);
-
-/* 102-binary_tree_is_complete.c */
-int binary_tree_is_complete(const binary_tree_t *tree);
-
-void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
-void recursion(link_t **head, const binary_tree_t *tree);
-void linked_node(link_t **head, const binary_tree_t *tree, size_t level);
-size_t binary_tree_depth(const binary_tree_t *tree);
-size_t binary_tree_height(const binary_tree_t *tree);
+				     const binary_tree_t *second);
 
 /* 102-binary_tree_is_complete.c */
 int binary_tree_is_complete(const binary_tree_t *tree);
@@ -138,19 +129,11 @@ bst_t *bst_min_node(bst_t *root);
 int binary_tree_is_avl(const binary_tree_t *tree);
 size_t binary_tree_height(const binary_tree_t *tree);
 int binary_tree_balance(const binary_tree_t *tree);
-avl_t *avl_insert(avl_t **tree, int value);
-avl_t *array_to_avl(int *array, size_t size);
-avl_t *avl_remove(avl_t *root, int value);
-avl_t *sorted_array_to_avl(int *array, size_t size);
 
 /* 130-binary_tree_is_heap.c */
 int binary_tree_is_heap(const binary_tree_t *tree);
 
 /* 131-heap_insert.c */
 heap_t *heap_insert(heap_t **root, int value);
-
-heap_t *array_to_heap(int *array, size_t size);
-int heap_extract(heap_t **root);
-int *heap_to_sorted_array(heap_t *heap, size_t *size);
 
 #endif /* _BINARY_TREES_H_ */
