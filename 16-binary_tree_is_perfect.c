@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
- * tree_stats - function that computes some statistics about a binary tree.
+ * tree_stats - This function computes some statistics about a binary tree.
  * @tree: the pointer to root node of the tree to check.
  * @n: the accumulated heightof the curr path in the tree.
  * @leaves: the pointer to tree's leaf count value.
@@ -30,7 +30,7 @@ void tree_stats(const binary_tree_t *tree, size_t n,
 }
 
 /**
- * binary_tree_is_perfect - function that checks if a binary tree is perfect.
+ * binary_tree_is_perfect - This function checks if a binary tree is perfect.
  * @tree: the pointer to root node of the tree to check.
  *
  * Return: 1 if tree is full. 0 otherwise.

@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
- * node_height - function that computes the height of a binary tree's node.
+ * node_height - This function computes the height of a binary tree's node.
  * @tree: the pointer to root node of the tree to measure the height.
  * @n: the accumulated height
  * @height: the pointer to maximum height in the node's tree.
@@ -28,7 +28,7 @@ void node_height(const binary_tree_t *tree, int n, int *height)
 }
 
 /**
- * binary_tree_balance - function that measures the balance factor of,
+ * binary_tree_balance - This function measures the balance factor of,
  * a binary tree.
  * @tree: the pointer to root node of the tree to measure the balance factor.
  *
