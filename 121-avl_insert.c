@@ -58,9 +58,9 @@ avl_t *insert(avl_t *tree, avl_t *node)
 
 /**
  * rebalance - rebalances an AVL tree
- * @tree: the pointer to the root node of the tree to rebalance
- * @node: the pointer to the node to be inserted
- * Return: the pointer to the new root node of the tree once rebalanced
+ * @tree: the pointer to root node of the tree to rebalance
+ * @node: the pointer to node to be inserted
+ * Return: the pointer to new root node of the tree once rebalanced
  */
 avl_t *rebalance(avl_t *tree, avl_t *node)
 {

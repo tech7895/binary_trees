@@ -8,7 +8,7 @@ heap_t *bottom_up_heapify(heap_t *node);
 
 /**
  * heap_insert - Inserts a value into a Max Binary Heap
- * @root: Double the pointer to the root node of the Heap to insert the value
+ * @root: Double the pointer to root node of the Heap to insert the value
  * @value: Value to store in the node to be inserted
  * Return: Pointer to the created node, or NULL on failure
  */

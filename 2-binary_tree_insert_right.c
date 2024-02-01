@@ -4,7 +4,7 @@
  * binary_tree_insert_right - function that inserts a node as the,
  * right-child of another node.
  *
- * @parent: the pointer to the node to insert the right-child in.
+ * @parent: the pointer to node to insert the right-child in.
  * @value: the value to store in the new node.
  *
  * If parent already has a right-child, the new node must take its place,

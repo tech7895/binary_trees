@@ -6,9 +6,9 @@ avl_t *avl_rebalance(avl_t *node);
 
 /**
  * avl_remove - removes a node from an AVL tree
- * @root: the pointer to the root node of the tree for removing a node
+ * @root: the pointer to root node of the tree for removing a node
  * @value: the value to remove in the tree
- * Return: the pointer to the root node of the tree after removing the
+ * Return: the pointer to root node of the tree after removing the
  * desired value
  */
 avl_t *avl_remove(avl_t *root, int value)
@@ -43,8 +43,8 @@ avl_t *avl_remove(avl_t *root, int value)
 
 /**
  * inorder_successor - finds the inorder successor of a node
- * @node: the pointer to the node
- * Return: the pointer to the inorder successor node
+ * @node: the pointer to node
+ * Return: the pointer to inorder successor node
  */
 avl_t *inorder_successor(avl_t *node)
 {
@@ -57,8 +57,8 @@ avl_t *inorder_successor(avl_t *node)
 
 /**
  * avl_rebalance - rebalances an AVL tree
- * @node: the pointer to the node to rebalance
- * Return: the pointer to the root node of the tree after rebalancing
+ * @node: the pointer to node to rebalance
+ * Return: the pointer to root node of the tree after rebalancing
  */
 avl_t *avl_rebalance(avl_t *node)
 {

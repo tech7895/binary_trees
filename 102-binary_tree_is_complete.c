@@ -2,7 +2,7 @@
 
 /**
  * binary_tree_is_complete - checks if a binary tree is complete.
- * @tree: the pointer to the root node of the tree to check.
+ * @tree: the pointer to root node of the tree to check.
  *
  * If tree is NULL, your function must return 0.
  *

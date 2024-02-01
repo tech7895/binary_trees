@@ -2,9 +2,9 @@
 
 /**
  * node_height - function that computes the height of a binary tree's node.
- * @tree: the pointer to the root node of the tree to measure the height.
+ * @tree: the pointer to root node of the tree to measure the height.
  * @n: the accumulated height
- * @height: the pointer to the maximum height in the node's tree.
+ * @height: the pointer to maximum height in the node's tree.
  *
  * Return: void
  */
@@ -30,7 +30,7 @@ void node_height(const binary_tree_t *tree, int n, int *height)
 /**
  * binary_tree_balance - function that measures the balance factor of,
  * a binary tree.
- * @tree: the pointer to the root node of the tree to measure the balance factor.
+ * @tree: the pointer to root node of the tree to measure the balance factor.
  *
  * Return: balance factor of a binary tree. If tree is NULL, return 0.
  */

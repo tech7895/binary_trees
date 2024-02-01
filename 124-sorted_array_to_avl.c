@@ -5,9 +5,9 @@ avl_t *s_array_to_avl(int *arr, int l, int r, avl_t *parent);
 
 /**
  * sorted_array_to_avl - This builds an AVL tree from an array
- * @array: the pointer to the first element of the array to be converted
+ * @array: the pointer to first element of the array to be converted
  * @size: number of element in the array
- * Return: the pointer to the root node of the created AVL tree, or NULL on failure
+ * Return: the pointer to root node of the created AVL tree, or NULL on failure
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
@@ -24,11 +24,11 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
  * Description: This function is a helper function for sorted_array_to_avl
  * It takes advantage of the fact that bst result in ordered arrays
  * when traversed inorder
- * @arr: the pointer to the first element of the array to be converted
+ * @arr: the pointer to first element of the array to be converted
  * @l: the left index
  * @r: the right index
- * @parent: the pointer to the parent node
- * Return: the pointer to the root node of the created AVL tree, or NULL on failure
+ * @parent: the pointer to parent node
+ * Return: the pointer to root node of the created AVL tree, or NULL on failure
  */
 avl_t *s_array_to_avl(int *arr, int l, int r, avl_t *parent)
 {

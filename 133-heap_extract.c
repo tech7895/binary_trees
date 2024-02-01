@@ -8,7 +8,7 @@ void top_down_heapify(heap_t *root);
 /**
  * heap_extract - Extracts the root node of a Max Binary Heap
  *
- * @root: Double the pointer to the root node of the heap
+ * @root: Double the pointer to root node of the heap
  *
  * Return: Value stored in the root node, or 0 on failure
  */

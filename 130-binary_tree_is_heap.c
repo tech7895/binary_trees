@@ -2,7 +2,7 @@
 
 /**
  * binary_tree_is_heap - checks if a binary tree is a valid Max Binary Heap.
- * @tree: the pointer to the root node of the tree to check.
+ * @tree: the pointer to root node of the tree to check.
  *
  * Return: 1 if tree is a valid Max Binary Heap, and 0 otherwise
  */

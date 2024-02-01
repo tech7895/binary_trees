@@ -2,13 +2,13 @@
 
 /**
  * array_to_bst - This builds a Binary Search Tree from an array.
- * @array: the pointer to the first element of the array to be converted.
+ * @array: the pointer to first element of the array to be converted.
  * @size: number of element in the array.
  *
  * If a value of the array is already present in the tree, this value must
  * be ignored.
  *
- * Return: the pointer to the root node of the created BST, or NULL on failure.
+ * Return: the pointer to root node of the created BST, or NULL on failure.
  */
 bst_t *array_to_bst(int *array, size_t size)
 {
