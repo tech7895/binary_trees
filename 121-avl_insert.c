@@ -14,14 +14,14 @@ avl_t *rebalance(avl_t *tree, avl_t *node);
  */
 avl_t *avl_insert(avl_t **tree, int value)
 {
-	avl_t *new_node = NULL;
+	avl_t *new_nd = NULL;
 
 	if (!tree)
 		return (NULL);
 
-	new_node = binary_tree_node(NULL, value);
-	*tree = insert(*tree, new_node);
-	return (new_node);
+	new_nd = binary_tree_node(NULL, value);
+	*tree = insert(*tree, new_nd);
+	return (new_nd);
 }
 
 /**
@@ -58,9 +58,9 @@ avl_t *insert(avl_t *tree, avl_t *node)
 
 /**
  * rebalance - rebalances an AVL tree
- * @tree: pointer to the root node of the tree to rebalance
- * @node: pointer to the node to be inserted
- * Return: pointer to the new root node of the tree once rebalanced
+ * @tree: the pointer to the root node of the tree to rebalance
+ * @node: the pointer to the node to be inserted
+ * Return: the pointer to the new root node of the tree once rebalanced
  */
 avl_t *rebalance(avl_t *tree, avl_t *node)
 {

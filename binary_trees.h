@@ -143,5 +143,6 @@ int binary_tree_is_heap(const binary_tree_t *tree);
 heap_t *heap_insert(heap_t **root, int value);
 int heap_extract(heap_t **root);
 int *heap_to_sorted_array(heap_t *heap, size_t *size);
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 
 #endif /* _BINARY_TREES_H_ */

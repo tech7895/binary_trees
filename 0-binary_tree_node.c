@@ -3,12 +3,12 @@
 /**
  * binary_tree_node - This function creates a binary tree.
  *
- * @parent: the pointer to the node of the parent node
+ * @parent: the the pointer to the node of the parent node
  * @value: the value of the new node
  *
  * When created, a node does not have any child.
  *
- * Return: pointer to the new node, or NULL on failure.
+ * Return: the pointer to the new node, or NULL on failure.
  */
 
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)

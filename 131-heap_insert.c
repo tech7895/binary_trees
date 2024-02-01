@@ -2,32 +2,32 @@
 #include "binary_trees.h"
 
 int node_count(const heap_t *tree);
-heap_t *ins_max_heap(heap_t *node, heap_t *new_node, int index,
-					 int new_node_index);
+heap_t *ins_max_heap(heap_t *node, heap_t *new_nd, int index,
+					 int new_nd_index);
 heap_t *bottom_up_heapify(heap_t *node);
 
 /**
  * heap_insert - Inserts a value into a Max Binary Heap
- * @root: Double pointer to the root node of the Heap to insert the value
+ * @root: Double the pointer to the root node of the Heap to insert the value
  * @value: Value to store in the node to be inserted
  * Return: Pointer to the created node, or NULL on failure
  */
 heap_t *heap_insert(heap_t **root, int value)
 {
 	int size;
-	heap_t *new_node = NULL;
+	heap_t *new_nd = NULL;
 
 	if (!root)
 		return (NULL);
 
-	new_node = binary_tree_node(NULL, value);
-	if (!new_node)
+	new_nd = binary_tree_node(NULL, value);
+	if (!new_nd)
 		return (NULL);
 
 	size = node_count(*root) + 1;
-	*root = ins_max_heap(*root, new_node, 0, size - 1);
+	*root = ins_max_heap(*root, new_nd, 0, size - 1);
 
-	return (bottom_up_heapify(new_node));
+	return (bottom_up_heapify(new_nd));
 }
 
 /**
@@ -45,26 +45,26 @@ int node_count(const heap_t *tree)
 /**
  * ins_max_heap - Inserts a value into a Max Binary Heap
  * @node: Pointer to the root node of the Heap to insert the value
- * @new_node: Value to store in the node to be inserted
- * @index: Index of current node
- * @new_node_index: Index of new node
+ * @new_nd: Value to store in the node to be inserted
+ * @index: Index of curr node
+ * @new_nd_index: Index of new node
  * Return: Pointer to the created node, or NULL on failure
  */
-heap_t *ins_max_heap(heap_t *node, heap_t *new_node,
-					 int index, int new_node_index)
+heap_t *ins_max_heap(heap_t *node, heap_t *new_nd,
+					 int index, int new_nd_index)
 {
-	if (index > new_node_index)
+	if (index > new_nd_index)
 		return (NULL);
-	if (index == new_node_index)
-		return (new_node);
+	if (index == new_nd_index)
+		return (new_nd);
 
-	node->left = ins_max_heap(node->left, new_node,
-							  index * 2 + 1, new_node_index);
+	node->left = ins_max_heap(node->left, new_nd,
+							  index * 2 + 1, new_nd_index);
 	if (node->left)
 		node->left->parent = node;
 
-	node->right = ins_max_heap(node->right, new_node,
-							   index * 2 + 2, new_node_index);
+	node->right = ins_max_heap(node->right, new_nd,
+							   index * 2 + 2, new_nd_index);
 	if (node->right)
 		node->right->parent = node;
 
@@ -81,15 +81,15 @@ heap_t *ins_max_heap(heap_t *node, heap_t *new_node,
  */
 heap_t *bottom_up_heapify(heap_t *node)
 {
-	heap_t *temp = node;
-	int temp_n;
+	heap_t *tempo = node;
+	int tempo_n;
 
-	while (temp->parent && temp->n > temp->parent->n)
+	while (tempo->parent && tempo->n > tempo->parent->n)
 	{
-		temp_n = temp->n;
-		temp->n = temp->parent->n;
-		temp->parent->n = temp_n;
-		temp = temp->parent;
+		tempo_n = tempo->n;
+		tempo->n = tempo->parent->n;
+		tempo->parent->n = tempo_n;
+		tempo = tempo->parent;
 	}
-	return (temp);
+	return (tempo);
 }

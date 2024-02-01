@@ -34,7 +34,7 @@ size_t binary_tree_depth(const binary_tree_t *tree)
 }
 /**
  * linked_node - this function makes a linked list from depth level and node
- * @head: pointer to head of linked list
+ * @head: the pointer to head of linked list
  * @tree: node to store
  * @level: depth of node to store
  * Return: Nothing
@@ -69,7 +69,7 @@ void linked_node(link_t **head, const binary_tree_t *tree, size_t level)
 /**
  * recursion - goes through the complete tree and each stores each node
  * in linked_node function
- * @head: pointer to head of linked list
+ * @head: the pointer to head of linked list
  * @tree: node to check
  * Return: Nothing by default it affects the pointer
  */

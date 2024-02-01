@@ -2,9 +2,9 @@
 
 /**
  * bst_remove - removes a node from a Binary Search Tree
- * @root: pointer to the root node of the tree where you will remove a node
- * @value: value to remove in the tree
- * Return: pointer to the new root node of the tree after removing the desired
+ * @root: the pointer to the root node of the tree where you will remove a node
+ * @value: the value to remove in the tree
+ * Return: the pointer to the new root node of the tree after removing the desired
  * value
  */
 bst_t *bst_remove(bst_t *root, int value)
@@ -51,9 +51,9 @@ bst_t *bst_remove(bst_t *root, int value)
 
 /**
  * bst_min_node - finds the minimum node in a binary search tree.
- * @root: pointer to the root node of the tree to traverse.
+ * @root: the pointer to the root node of the tree to traverse.
  *
- * Return: pointer to the minimum node
+ * Return: the pointer to the minimum node
  */
 bst_t *bst_min_node(bst_t *root)
 {

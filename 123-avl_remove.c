@@ -6,14 +6,14 @@ avl_t *avl_rebalance(avl_t *node);
 
 /**
  * avl_remove - removes a node from an AVL tree
- * @root: pointer to the root node of the tree for removing a node
- * @value: value to remove in the tree
- * Return: pointer to the root node of the tree after removing the
+ * @root: the pointer to the root node of the tree for removing a node
+ * @value: the value to remove in the tree
+ * Return: the pointer to the root node of the tree after removing the
  * desired value
  */
 avl_t *avl_remove(avl_t *root, int value)
 {
-	avl_t *temp = NULL, *successor = NULL;
+	avl_t *tempo = NULL, *successor = NULL;
 
 	if (!root)
 		return (NULL);
@@ -25,11 +25,11 @@ avl_t *avl_remove(avl_t *root, int value)
 	{
 		if (!root->left || !root->right)
 		{
-			temp = root->left ? root->left : root->right;
-			if (temp)
-				temp->parent = root->parent;
+			tempo = root->left ? root->left : root->right;
+			if (tempo)
+				tempo->parent = root->parent;
 			free(root);
-			return (avl_rebalance(temp));
+			return (avl_rebalance(tempo));
 		}
 		else
 		{
@@ -43,22 +43,22 @@ avl_t *avl_remove(avl_t *root, int value)
 
 /**
  * inorder_successor - finds the inorder successor of a node
- * @node: pointer to the node
- * Return: pointer to the inorder successor node
+ * @node: the pointer to the node
+ * Return: the pointer to the inorder successor node
  */
 avl_t *inorder_successor(avl_t *node)
 {
-	avl_t *current = node;
+	avl_t *curr = node;
 
-	while (current && current->left)
-		current = current->left;
-	return (current);
+	while (curr && curr->left)
+		curr = curr->left;
+	return (curr);
 }
 
 /**
  * avl_rebalance - rebalances an AVL tree
- * @node: pointer to the node to rebalance
- * Return: pointer to the root node of the tree after rebalancing
+ * @node: the pointer to the node to rebalance
+ * Return: the pointer to the root node of the tree after rebalancing
  */
 avl_t *avl_rebalance(avl_t *node)
 {

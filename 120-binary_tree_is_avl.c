@@ -3,7 +3,7 @@
 
 /**
  * binary_tree_height - measures the height of a binary tree.
- * @tree: pointer to the root node of the tree to measure the height.
+ * @tree: the pointer to the root node of the tree to measure the height.
  *
  * Return: height of the tree.
  */
@@ -33,7 +33,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
 
 /**
  * binary_tree_balance - measures the balance factor of a binary tree.
- * @tree: pointer to the root node of the tree to measure the balance factor.
+ * @tree: the pointer to the root node of the tree to measure the balance factor.
  *
  * Return: balance factor of the tree.
  */
@@ -58,7 +58,7 @@ int binary_tree_balance(const binary_tree_t *tree)
 
 /**
  * binary_tree_is_avl - checks if a binary tree is a valid AVL Tree.
- * @tree: pointer to the root node of the tree to check.
+ * @tree: the pointer to the root node of the tree to check.
  *
  * Return: 1 if tree is a valid AVL Tree, and 0 otherwise.
  */

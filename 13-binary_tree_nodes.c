@@ -2,7 +2,7 @@
 
 /**
  * binary_tree_is_leaf - function that checks if a node is a leaf.
- * @node: pointer to the node to check.
+ * @node: the pointer to the node to check.
  *
  * Return: 1 if node is a leaf, and 0 otherwise. If node is NULL, return 0.
  */
@@ -16,7 +16,7 @@ int binary_tree_is_leaf(const binary_tree_t *node)
 /**
  * binary_tree_nodes - function that counts the nodes with at least,
  * 1 child in a binary tree.
- * @tree: pointer to the root tree of the tree to count the no. of nodes.
+ * @tree: the pointer to the root tree of the tree to count the no. of nodes.
  *
  * A NULL pointer is not a node.
  *

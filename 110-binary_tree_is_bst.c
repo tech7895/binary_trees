@@ -3,7 +3,7 @@
  * check_sub_tree_Left - check if all nodes are smaller than
  * the root specified
  * @node: node in the tree to verify condition
- * @max: value to compare
+ * @max: the value to compare
  * Return: 1 if all nodes are smaller or equal or 0 if not
  */
 int check_sub_tree_Left(const binary_tree_t *node, int max)
@@ -29,7 +29,7 @@ int check_sub_tree_Left(const binary_tree_t *node, int max)
  * check_sub_tree_Right - check if all the nodes are bigger than the
  * root specified
  * @node: node in the tree to verify condition
- * @min: value to compare
+ * @min: the value to compare
  * Return: 1 if all is bigger or equal or 0 if not
  */
 int check_sub_tree_Right(const binary_tree_t *node, int min)

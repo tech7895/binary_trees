@@ -8,7 +8,7 @@ void top_down_heapify(heap_t *root);
 /**
  * heap_extract - Extracts the root node of a Max Binary Heap
  *
- * @root: Double pointer to the root node of the heap
+ * @root: Double the pointer to the root node of the heap
  *
  * Return: Value stored in the root node, or 0 on failure
  */
@@ -57,7 +57,7 @@ size_t get_node_count(const heap_t *tree)
  * get_last_node - Gets the last node of a Max Binary Heap
  *
  * @root: Pointer to the root node of the Heap
- * @index: Index of the current node in the binary representation of the size
+ * @index: Index of the curr node in the binary representation of the size
  * @size: Size of the Heap
  *
  * Return: Pointer to the last node of the Heap
@@ -80,29 +80,29 @@ heap_t *get_last_node(heap_t *root, size_t index, size_t size)
  * top_down_heapify - Moves the node at the top of the tree down to its
  * correct position in the Max Binary Heap
  *
- * Description: This function compares the value of the current node with the
- * values of its left and right children. If the value of the current node is
- * less than the value of either of its children, the values of the current
+ * Description: This function compares the value of the curr node with the
+ * values of its left and right children. If the value of the curr node is
+ * less than the value of either of its children, the values of the curr
  * node and the child node with the largest value are swapped. This process
- * is repeated until the current node is greater than both of its children.
+ * is repeated until the curr node is greater than both of its children.
  *
  * @root: Pointer to the root node of the Heap
  * Return: Nothing
  */
 void top_down_heapify(heap_t *root)
 {
-	heap_t *largest = root, *current = NULL;
-	int temp;
+	heap_t *largest = root, *curr = NULL;
+	int tempo;
 
-	while (largest != current)
+	while (largest != curr)
 	{
-		current = largest;
-		if (current->left && current->left->n > current->n)
-			largest = current->left;
-		if (current->right && current->right->n > largest->n)
-			largest = current->right;
-		temp = current->n;
-		current->n = largest->n;
-		largest->n = temp;
+		curr = largest;
+		if (curr->left && curr->left->n > curr->n)
+			largest = curr->left;
+		if (curr->right && curr->right->n > largest->n)
+			largest = curr->right;
+		tempo = curr->n;
+		curr->n = largest->n;
+		largest->n = tempo;
 	}
 }
