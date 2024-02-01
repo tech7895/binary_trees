@@ -141,5 +141,7 @@ int binary_tree_is_heap(const binary_tree_t *tree);
 
 /* 131-heap_insert.c */
 heap_t *heap_insert(heap_t **root, int value);
+int heap_extract(heap_t **root);
+int *heap_to_sorted_array(heap_t *heap, size_t *size);
 
 #endif /* _BINARY_TREES_H_ */
