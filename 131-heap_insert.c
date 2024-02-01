@@ -1,4 +1,4 @@
-#include <stdlib.h>
+
 #include "binary_trees.h"
 
 int node_count(const heap_t *tree);

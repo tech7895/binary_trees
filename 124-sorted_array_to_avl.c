@@ -1,4 +1,4 @@
-#include <stdlib.h>
+
 #include "binary_trees.h"
 
 avl_t *s_array_to_avl(int *arr, int l, int r, avl_t *parent);

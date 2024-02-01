@@ -1,4 +1,4 @@
-#include <stdlib.h>
+
 #include "binary_trees.h"
 
 avl_t *inorder_successor(avl_t *node);

@@ -1,4 +1,4 @@
-#include <stdlib.h>
+
 #include "binary_trees.h"
 
 avl_t *insert(avl_t *tree, avl_t *node);
