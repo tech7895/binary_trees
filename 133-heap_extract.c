@@ -83,7 +83,7 @@ heap_t *get_last_node(heap_t *root, size_t index, size_t size)
  * Description: This function compares the value of the curr node with the
  * values of its left and right children. If the value of the curr node is
  * less than the value of either of its children, the values of the curr
- * node and the child node with the largest value are swapped. This process
+ * node and the child node with the vlarge value are swapped. This process
  * is repeated until the curr node is greater than both of its children.
  *
  * @root: Pointer to the root node of the Heap
@@ -91,18 +91,18 @@ heap_t *get_last_node(heap_t *root, size_t index, size_t size)
  */
 void top_down_heapify(heap_t *root)
 {
-	heap_t *largest = root, *curr = NULL;
+	heap_t *vlarge = root, *curr = NULL;
 	int tempo;
 
-	while (largest != curr)
+	while (vlarge != curr)
 	{
-		curr = largest;
+		curr = vlarge;
 		if (curr->left && curr->left->n > curr->n)
-			largest = curr->left;
-		if (curr->right && curr->right->n > largest->n)
-			largest = curr->right;
+			vlarge = curr->left;
+		if (curr->right && curr->right->n > vlarge->n)
+			vlarge = curr->right;
 		tempo = curr->n;
-		curr->n = largest->n;
-		largest->n = tempo;
+		curr->n = vlarge->n;
+		vlarge->n = tempo;
 	}
 }
