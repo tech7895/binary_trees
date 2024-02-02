@@ -36,14 +36,14 @@ void node_height(const binary_tree_t *tree, int n, int *height)
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
-	int balance_factor = 0, left_height = 0, right_height = 0;
+	int bal_fctr = 0, ht_lft = 0, ht_rght = 0;
 
 	if (tree == NULL)
 		return (0);
 
-	node_height(tree->left, 1, &left_height);
-	node_height(tree->right, 1, &right_height);
+	node_height(tree->left, 1, &ht_lft);
+	node_height(tree->right, 1, &ht_rght);
 
-	balance_factor = left_height - right_height;
-	return (balance_factor);
+	bal_fctr = ht_lft - ht_rght;
+	return (bal_fctr);
 }

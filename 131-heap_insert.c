@@ -1,4 +1,3 @@
-
 #include "binary_trees.h"
 
 int node_count(const heap_t *tree);
@@ -7,10 +6,10 @@ heap_t *ins_max_heap(heap_t *node, heap_t *new_nd, int index,
 heap_t *bottom_up_heapify(heap_t *node);
 
 /**
- * heap_insert - Inserts a value into a Max Binary Heap
- * @root: Double the pointer to root node of the Heap to insert the value
- * @value: Value to store in the node to be inserted
- * Return: Pointer to the created node, or NULL on failure
+ * heap_insert - This inserts a value into a Max Binary Heap
+ * @root: Double the pointer to root node of the Heap
+ * @value: Value to store in the node
+ * Return: the Pointer to the created node, or NULL on failure
  */
 heap_t *heap_insert(heap_t **root, int value)
 {
@@ -31,9 +30,9 @@ heap_t *heap_insert(heap_t **root, int value)
 }
 
 /**
- * node_count - Counts the total number of nodes in a binary tree
- * @tree: Pointer to the root node of the tree to count the number of nodes
- * Return: Number of nodes in the tree
+ * node_count - This counts the total number of nodes in a binary tree
+ * @tree: Pointer to the root node of the tree to count nodes
+ * Return: the number of nodes in the tree
  */
 int node_count(const heap_t *tree)
 {
@@ -41,6 +40,7 @@ int node_count(const heap_t *tree)
 		return (0);
 	return (1 + node_count(tree->left) + node_count(tree->right));
 }
+
 
 /**
  * ins_max_heap - Inserts a value into a Max Binary Heap

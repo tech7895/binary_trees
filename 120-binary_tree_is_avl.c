@@ -9,8 +9,8 @@
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t left_height = 0;
-	size_t right_height = 0;
+	size_t ht_lft = 0;
+	size_t ht_rght = 0;
 
 	/* If the tree is empty, return 0. */
 	if (!tree)
@@ -21,14 +21,14 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	* Add 1 to the maximum height and return.
 	*/
 	if (tree->left)
-		left_height = 1 + binary_tree_height(tree->left);
+		ht_lft = 1 + binary_tree_height(tree->left);
 	if (tree->right)
-		right_height = 1 + binary_tree_height(tree->right);
+		ht_rght = 1 + binary_tree_height(tree->right);
 
-	if (left_height > right_height)
-		return (left_height);
+	if (ht_lft > ht_rght)
+		return (ht_lft);
 	else
-		return (right_height);
+		return (ht_rght);
 }
 
 /**
@@ -39,8 +39,8 @@ size_t binary_tree_height(const binary_tree_t *tree)
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
-	int left_height = 0;
-	int right_height = 0;
+	int ht_lft = 0;
+	int ht_rght = 0;
 
 	/* If the tree is empty, return 0. */
 	if (!tree)
@@ -48,12 +48,12 @@ int binary_tree_balance(const binary_tree_t *tree)
 
 	/* Calculate the height of the left and right subtrees. */
 	if (tree->left)
-		left_height = 1 + binary_tree_height(tree->left);
+		ht_lft = 1 + binary_tree_height(tree->left);
 	if (tree->right)
-		right_height = 1 + binary_tree_height(tree->right);
+		ht_rght = 1 + binary_tree_height(tree->right);
 
 	/* Return the difference between the left and right subtrees. */
-	return (left_height - right_height);
+	return (ht_lft - ht_rght);
 }
 
 /**

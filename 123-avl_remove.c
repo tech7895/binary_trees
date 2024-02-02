@@ -62,18 +62,18 @@ avl_t *inorder_successor(avl_t *node)
  */
 avl_t *avl_rebalance(avl_t *node)
 {
-	int balance_factor;
+	int bal_fctr;
 
 	if (!node)
 		return (NULL);
-	balance_factor = binary_tree_balance(node);
-	if (balance_factor > 1)
+	bal_fctr = binary_tree_balance(node);
+	if (bal_fctr > 1)
 	{
 		if (binary_tree_balance(node->left) < 0)
 			node->left = binary_tree_rotate_left(node->left);
 		node = binary_tree_rotate_right(node);
 	}
-	else if (balance_factor < -1)
+	else if (bal_fctr < -1)
 	{
 		if (binary_tree_balance(node->right) > 0)
 			node->right = binary_tree_rotate_right(node->right);

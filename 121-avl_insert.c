@@ -64,21 +64,21 @@ avl_t *insert(avl_t *tree, avl_t *node)
  */
 avl_t *rebalance(avl_t *tree, avl_t *node)
 {
-	int balance_factor;
+	int bal_fctr;
 
 	if (!tree)
 		return (NULL);
 
-	balance_factor = binary_tree_balance(tree);
+	bal_fctr = binary_tree_balance(tree);
 
-	if (balance_factor > 1)
+	if (bal_fctr > 1)
 	{
 		/* left-right case */
 		if (tree->left->n < node->n)
 			tree->left = binary_tree_rotate_left(tree->left);
 		return (binary_tree_rotate_right(tree));
 	}
-	if (balance_factor < -1)
+	if (bal_fctr < -1)
 	{
 		/* right-left case */
 		if (tree->right->n > node->n)
